@@ -8,7 +8,7 @@ const logger = require('./logger');
 
 const authRoutes = require('./routes/authRoutes');
 const productRoutes = require('./routes/productRoutes');
-//const orderRoutes = require('./routes/orderRoutes');
+const orderRoutes = require('./routes/orderRoutes');
 
 const app = express();
 
@@ -48,10 +48,10 @@ app.use('/api/auth', authRoutes);
 
 app.use('/api/products', productRoutes);
 app.use('/api/admin/products', require('./routes/adminProductRoutes'));
-//app.use('/api/admin', require('./routes/adminStreamRoutes'));
+app.use('/api/admin', require('./routes/adminStreamRoutes'));
 
-//app.use('/api', orderRoutes);
-//app.use('/api/admin/orders', require('./routes/adminOrderRoutes'));
+app.use('/api', orderRoutes);
+app.use('/api/admin/orders', require('./routes/adminOrderRoutes'));
 
 // Root Route (Railway Health Check)
 app.get('/', (req, res) => {
