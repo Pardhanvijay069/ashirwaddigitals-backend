@@ -1,6 +1,6 @@
-require("dotenv").config();
-
-const serverless = require("serverless-http");
-const app = require("../src/app");
-
-module.exports = serverless(app);
+module.exports = (req, res) => {
+    res.status(200).json({
+        success: true,
+        message: "Vercel Function Working"
+    });
+};
