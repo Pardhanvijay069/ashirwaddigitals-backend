@@ -6,7 +6,7 @@ const rateLimit = require('express-rate-limit');
 const { errorHandler } = require('./middleware/errorMiddleware');
 const logger = require('./logger');
 
-//const authRoutes = require('./routes/authRoutes');
+const authRoutes = require('./routes/authRoutes');
 //const productRoutes = require('./routes/productRoutes');
 //const orderRoutes = require('./routes/orderRoutes');
 
@@ -43,7 +43,7 @@ app.use((req, res, next) => {
 });
 
 // Routes
-//app.use('/api/auth', authRoutes);
+app.use('/api/auth', authRoutes);
 //app.post('/api/admin/login', require('./validators').adminLoginValidation, require('./controllers/authController').adminLogin);
 
 //app.use('/api/products', productRoutes);
