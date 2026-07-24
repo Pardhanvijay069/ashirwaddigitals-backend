@@ -7,7 +7,7 @@ const { errorHandler } = require('./middleware/errorMiddleware');
 const logger = require('./logger');
 
 const authRoutes = require('./routes/authRoutes');
-//const productRoutes = require('./routes/productRoutes');
+const productRoutes = require('./routes/productRoutes');
 //const orderRoutes = require('./routes/orderRoutes');
 
 const app = express();
@@ -46,8 +46,8 @@ app.use((req, res, next) => {
 app.use('/api/auth', authRoutes);
 //app.post('/api/admin/login', require('./validators').adminLoginValidation, require('./controllers/authController').adminLogin);
 
-//app.use('/api/products', productRoutes);
-//app.use('/api/admin/products', require('./routes/adminProductRoutes'));
+app.use('/api/products', productRoutes);
+app.use('/api/admin/products', require('./routes/adminProductRoutes'));
 //app.use('/api/admin', require('./routes/adminStreamRoutes'));
 
 //app.use('/api', orderRoutes);
