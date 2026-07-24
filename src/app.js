@@ -6,9 +6,9 @@ const rateLimit = require('express-rate-limit');
 const { errorHandler } = require('./middleware/errorMiddleware');
 const logger = require('./logger');
 
-const authRoutes = require('./routes/authRoutes');
-const productRoutes = require('./routes/productRoutes');
-const orderRoutes = require('./routes/orderRoutes');
+//const authRoutes = require('./routes/authRoutes');
+//const productRoutes = require('./routes/productRoutes');
+//const orderRoutes = require('./routes/orderRoutes');
 
 const app = express();
 
@@ -19,8 +19,8 @@ app.use(helmet());
 //   credentials: true
 // }));
 app.use(cors({
-    origin: true,
-    credentials: true
+  origin: true,
+  credentials: true
 }));
 
 // Rate Limiting
@@ -43,15 +43,15 @@ app.use((req, res, next) => {
 });
 
 // Routes
-app.use('/api/auth', authRoutes);
-app.post('/api/admin/login', require('./validators').adminLoginValidation, require('./controllers/authController').adminLogin);
+//app.use('/api/auth', authRoutes);
+//app.post('/api/admin/login', require('./validators').adminLoginValidation, require('./controllers/authController').adminLogin);
 
-app.use('/api/products', productRoutes);
-app.use('/api/admin/products', require('./routes/adminProductRoutes'));
-app.use('/api/admin', require('./routes/adminStreamRoutes'));
+//app.use('/api/products', productRoutes);
+//app.use('/api/admin/products', require('./routes/adminProductRoutes'));
+//app.use('/api/admin', require('./routes/adminStreamRoutes'));
 
-app.use('/api', orderRoutes);
-app.use('/api/admin/orders', require('./routes/adminOrderRoutes'));
+//app.use('/api', orderRoutes);
+//app.use('/api/admin/orders', require('./routes/adminOrderRoutes'));
 
 // Root Route (Railway Health Check)
 app.get('/', (req, res) => {
