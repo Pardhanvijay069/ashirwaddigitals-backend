@@ -44,7 +44,7 @@ app.use((req, res, next) => {
 
 // Routes
 app.use('/api/auth', authRoutes);
-//app.post('/api/admin/login', require('./validators').adminLoginValidation, require('./controllers/authController').adminLogin);
+app.post('/api/admin/login', require('./validators').adminLoginValidation, require('./controllers/authController').adminLogin);
 
 app.use('/api/products', productRoutes);
 app.use('/api/admin/products', require('./routes/adminProductRoutes'));
